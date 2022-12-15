@@ -11,8 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.dark),
-       //  هي نفسها هااي
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: 'Poppins',
+      
+      ),
+      //  هي نفسها هااي
       //  theme: ThemeData.dark(),
       home: NotesView(),
     );
