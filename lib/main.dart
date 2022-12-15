@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
         fontFamily: 'Poppins',
-      
       ),
       //  هي نفسها هااي
       //  theme: ThemeData.dark(),
