@@ -1,6 +1,6 @@
 import 'package:hive_flutter/adapters.dart';
 
-part 'note_model.g.dart'; // اسم الملف تبع الاددبتور 
+part 'note_model.g.dart'; // اسم الملف تبع الادبتور 
 
 @HiveType(typeId: 0) // type adapter
 class NoteModel extends HiveObject {

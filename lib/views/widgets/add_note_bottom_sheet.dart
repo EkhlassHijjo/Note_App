@@ -28,7 +28,7 @@ class AddNoteForm extends StatefulWidget {
 class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  
+
   String? title, subTitle;
   @override
   Widget build(BuildContext context) {
@@ -64,9 +64,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 formKey.currentState!.save();
               } else {
                 autovalidateMode = AutovalidateMode.always;
-                setState(() {
-                  
-                });
+                setState(() {});
               }
             },
           ),
@@ -98,7 +96,10 @@ class CustomButtom extends StatelessWidget {
         child: Text(
           'Add ',
           style: TextStyle(
-              color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
