@@ -23,15 +23,30 @@ class addNoteBottomSheet extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return ModalProgressHUD(
-            inAsyncCall: state is AddNoteLoadingState ? true : false,
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
+          return AbsorbPointer( // مش هتكتب ع الشاشة والعكس صحيح trueشكلياً اذا
+            absorbing: state is AddNoteLoadingState ? true : false,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: SingleChildScrollView(
                 child: AddNoteForm(),
               ),
             ),
           );
+
+          ///ملاحظة::انا عملت الدورة ع بوتم شييت كله بدي اعمله ع الزر فقط
+          // return Container(
+          //   height: 400,    // فوق عشان احجمها عند التغيير
+          //   child: ModalProgressHUD(
+          //     ///conditional or builder دائما هااي بعد ل
+          //     inAsyncCall: true, //true: ظاهرة الدائرة
+          //     child: Padding(
+          //       padding: const EdgeInsets.all(20.0),
+          //       child: SingleChildScrollView(
+          //         child: AddNoteForm(),
+          //       ),
+          //     ),
+          //   ),
+          // );
         },
       ),
     );
