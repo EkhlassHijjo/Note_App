@@ -23,11 +23,16 @@ class addNoteBottomSheet extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return AbsorbPointer( // مش هتكتب ع الشاشة والعكس صحيح trueشكلياً اذا
+          return AbsorbPointer(
+            // مش هتكتب ع الشاشة والعكس صحيح trueشكلياً اذا
             absorbing: state is AddNoteLoadingState ? true : false,
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: SingleChildScrollView(
+              padding: EdgeInsets.only(
+                  top: 20,
+                  right: 20,
+                  left: 20,
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: SingleChildScrollView( // لو ما عملتها بوتم شييت هياخد الصفحة كلها
                 child: AddNoteForm(),
               ),
             ),
