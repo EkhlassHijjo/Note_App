@@ -7,14 +7,29 @@ import 'package:notes_app/models/note_model.dart';
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitialState());
 
- // معنديش await هنا
- void fetchAllNotes() {
-    try {
-      var noteBox = Hive.box<NoteModel>(kNotesBox);
-      List<NoteModel> notes = noteBox.values.toList();
-      emit(NotesSuccessState(notes));
-    } catch (error) {
-      emit(NotesErrorState(error.toString()));
-    }
+  List<NoteModel>? notes;
+
+  void fetchAllNotes() {
+    var noteBox = Hive.box<NoteModel>(kNotesBox);
+    notes = noteBox.values.toList();
+    // emit(NotesSuccessState(notes!)); //await مش هنحتاجها لانو هيك هيك البيانات هتيجي مش
   }
+  // طريقة اخرى 
+  // void fetchAllNotes() {
+  //   var noteBox = Hive.box<NoteModel>(kNotesBox);
+  //   List<NoteModel> notes = noteBox.values.toList();
+  //   emit(NotesSuccessState(notes));
+  // }
+
+  /// طريقة أخرى
+  // معنديش await هنا
+  // void fetchAllNotes() {
+  //   try {
+  //     var noteBox = Hive.box<NoteModel>(kNotesBox);
+  //     List<NoteModel> notes = noteBox.values.toList();
+  //     emit(NotesSuccessState(notes));
+  //   } catch (error) {
+  //     emit(NotesErrorState(error.toString()));
+  //   }
+  // }
 }
