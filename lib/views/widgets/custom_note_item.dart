@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/widgets/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({
-    Key? key,
+    Key? key, required this.model,
   }) : super(key: key);
-
+  final NoteModel model;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => EditNoteView()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => EditNoteView()));
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
         decoration: BoxDecoration(
-          color: Color(0xFFFFCC80),
+          // color: Color(0xFFFFCC80),
+          color: Color(model.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -26,13 +28,13 @@ class NoteItem extends StatelessWidget {
             ListTile(
               contentPadding: EdgeInsets.zero,
               title: Text(
-                'Flutter Tips',
+                '${model.title}',
                 style: TextStyle(color: Colors.black, fontSize: 25),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Text(
-                  'Build your career with group',
+                  model.subTitle,
                   style:
                       // Theme.of(context).textTheme.bodyText1!.copyWith(
                       //       color: Colors.black.withOpacity(0.4),
@@ -55,7 +57,7 @@ class NoteItem extends StatelessWidget {
               height: 15,
             ),
             Text(
-              'May,21,2022',
+              model.date,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black.withOpacity(0.5),

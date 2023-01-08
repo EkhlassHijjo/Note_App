@@ -24,10 +24,12 @@ class NotesListView extends StatelessWidget {
       List<NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
       // var notes = BlocProvider.of<NotesCubit>(context).notes!;
       return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
+        padding: EdgeInsets.symmetric(vertical: 15),
         child: ListView.separated(
           padding: EdgeInsets.zero, // لانو الها بادينج الليست فيو
-          itemBuilder: (context, index) => NoteItem(),
+          itemBuilder: (context, index) => NoteItem(
+            model: notes[index],
+          ),
           separatorBuilder: (context, index) => SizedBox(
             height: 10,
           ),
