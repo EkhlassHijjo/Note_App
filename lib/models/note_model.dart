@@ -5,13 +5,13 @@ part 'note_model.g.dart'; // اسم الملف تبع الادبتور
  @HiveType(typeId: 0) // type adapter لازم ال id
 class NoteModel extends HiveObject {
   @HiveField(0)
-  final String title;
+   String title; // عشان البيانات هتتغير final شيلت ال
   @HiveField(1)
-  final String subTitle;
+   String subTitle;
   @HiveField(2)
   final String date;
   @HiveField(3)
-  final int color;
+   int color;
 
   NoteModel({
     required this.title,

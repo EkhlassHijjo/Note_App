@@ -17,7 +17,7 @@ class NoteItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => EditNoteView()));
+            context, MaterialPageRoute(builder: (context) => EditNoteView(model3: model,)));
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
