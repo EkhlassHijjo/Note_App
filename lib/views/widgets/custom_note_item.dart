@@ -5,7 +5,8 @@ import 'package:notes_app/views/widgets/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({
-    Key? key, required this.model,
+    Key? key,
+    required this.model,
   }) : super(key: key);
   final NoteModel model;
   @override
@@ -44,7 +45,9 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  model.delete();
+                },
                 icon: Icon(
                   FontAwesomeIcons
                       .trash, //مكتبة لايقونات متعددة حلوة بالاستخدام
