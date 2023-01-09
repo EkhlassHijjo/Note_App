@@ -7,11 +7,13 @@ import 'package:notes_app/models/note_model.dart';
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitialState());
 
-  List<NoteModel>? notes;
+  List<NoteModel>? notes ;
+  // List<NoteModel> notes = [];
 
   void fetchAllNotes() {
     var noteBox = Hive.box<NoteModel>(kNotesBox);
     notes = noteBox.values.toList();
+    emit(NotesSuccess()); // rebuild لل UI
     // emit(NotesSuccessState(notes!)); //await مش هنحتاجها لانو هيك هيك البيانات هتيجي مش
   }
   // طريقة اخرى 
