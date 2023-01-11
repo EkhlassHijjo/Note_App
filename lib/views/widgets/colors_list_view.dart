@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/constant.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
-import 'package:notes_app/models/note_model.dart';
+
 
 class ColorItem extends StatelessWidget {
   const ColorItem({super.key, required this.isActive, required this.color});
@@ -12,15 +13,15 @@ class ColorItem extends StatelessWidget {
     return isActive
         ? CircleAvatar(
             backgroundColor: Colors.white,
-            radius: 32,
+            radius: 36,
             child: CircleAvatar(
               backgroundColor: color,
-              radius: 28,
+              radius: 32,
             ),
           )
         : CircleAvatar(
             backgroundColor: color,
-            radius: 32,
+            radius: 36,
           );
   }
 }
@@ -32,19 +33,20 @@ class ColorsListView extends StatefulWidget {
 
 class _ColorsListViewState extends State<ColorsListView> {
   int currentIndex = 0;
-  List<Color> colors = const [
-    Color(0xff006D77), //default اول لون يكون
-    Color(0xff83C5BE),
-    Color(0xffF4ACB7),
-    Color(0xff9D8189),
-    Color(0xffE29578),
-    Color(0xff6A994E)
-  ];
+  // خلص استخدمت من الثوابت لكافة التطبيق
+  // List<Color> colors = const [
+  //   Color(0xff006D77), //default اول لون يكون
+  //   Color(0xff83C5BE),
+  //   Color(0xffF4ACB7),
+  //   Color(0xff9D8189),
+  //   Color(0xffE29578),
+  //   Color(0xff6A994E)
+  // ];
   @override
   Widget build(BuildContext context) {
     return Container(
       //لازم احجمها
-      height: 60,
+      height: 38*2,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
@@ -53,16 +55,16 @@ class _ColorsListViewState extends State<ColorsListView> {
           child: GestureDetector(
             onTap: () {
               currentIndex = index;
-              BlocProvider.of<AddNoteCubit>(context).color = colors[index];
+              BlocProvider.of<AddNoteCubit>(context).color = kColors[index];
               setState(() {});
             },
             child: ColorItem(
-              color: colors[index],
+              color: kColors[index],
               isActive: currentIndex == index, // is mean true
             ),
           ),
         ),
-        itemCount: colors.length,
+        itemCount: kColors.length,
       ),
     );
   }
