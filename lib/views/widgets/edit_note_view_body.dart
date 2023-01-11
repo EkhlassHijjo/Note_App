@@ -41,7 +41,7 @@ class EditNoteViewBody extends StatelessWidget {
           ),
           CustomTextField(
             hint: model4.title,
-            onChanged: (value) {
+            onChanged: (value) { // عشان تعدلي عليها
               title = value;
             },
           ),

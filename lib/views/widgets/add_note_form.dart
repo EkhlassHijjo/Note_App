@@ -39,7 +39,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             height: 15,
           ),
           CustomTextField(
-            onSaved: (value) {
+            onSaved: (value) {  // عشان تحفظيها
               subTitle = value;
             },
             hint: 'Content',
